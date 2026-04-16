@@ -12,7 +12,7 @@ pipeline {
             steps {
                 sh '''
                     docker rm -f hello-world-container || true
-                    docker run -d --name hello-world-container -p 3000:3000 hello-world-node
+                    docker run -d --name hello-world-container -p 80:3000 hello-world-node
                 '''
             }
         }
