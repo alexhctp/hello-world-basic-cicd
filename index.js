@@ -12,7 +12,7 @@ app.get('/status', (req, res) => {
   res.json({ 
     status: 'online', 
     visitas: visitCount,
-    timestamp: new Date().toISOString(),\n
+    timestamp: new Date().toISOString()\n
   });
 });
 
