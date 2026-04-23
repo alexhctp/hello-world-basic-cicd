@@ -5,7 +5,7 @@ let visitCount = 0;
 
 app.get('/', (req, res) => {
   visitCount++;
-  res.send(`Hello World - CI/CD funcionando! Até agora a pagina foi recarregada ${visitCount} vezes e contando.`);
+  res.send(`Hello World - CI/CD funcionando! Até agora a pagina foi recarregada ${visitCount} vezes e contando. \n`);
 });
 
 app.get('/status', (req, res) => {
