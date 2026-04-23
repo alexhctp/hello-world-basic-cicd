@@ -9,11 +9,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
-  res.json({ 
-    status: 'online', 
+  const payload = {
+    status: 'online',
     visitas: visitCount,
     timestamp: new Date().toISOString()
-  });
+  };
+
+  // Gera JSON "pretty" com 2 espaços de indentação e adiciona uma quebra de linha final
+  res.type('application/json'); // opcional: define o Content-Type como application/json
+  res.send(JSON.stringify(payload, null, 2) + '\n');
 });
 
 app.listen(3000);
