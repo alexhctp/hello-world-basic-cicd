@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'podman build -t hello-world-node .'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    podman rm -f hello-world-container || true
+                    podman run -d --name hello-world-container -p 80:3001 hello-world-node
+                '''
+            }
+        }
+    }
+}
